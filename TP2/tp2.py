@@ -11,7 +11,7 @@ et = 10
 imb = im + et*randn(im.shape[0], im.shape[1])
 
 # moyen filter
-flt1 = np.ones((3,3)) / 9
+flt1 = np.ones((3,3), np.float32) / 9
 flt2 = np.ones((5,5)) / 25
 
 #By using the convolution operator of the OpenCV module
