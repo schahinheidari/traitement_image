@@ -2,7 +2,6 @@ import numpy as np
 import cv2 as cv 
 from matplotlib import pyplot as plt
 from numpy.random import randn
-import math
 
 im = cv.imread('photophore.tif', cv.IMREAD_GRAYSCALE)
 #im = cv.imread('photophore.tif', 0)
@@ -11,13 +10,12 @@ et = 10
 imb = im + et*randn(im.shape[0], im.shape[1])
 
 # moyen filter
-flt1 = np.ones((3,3), np.float32) / 9
+flt1 = np.ones((3,3)) / 9
 flt2 = np.ones((5,5)) / 25
 
 #By using the convolution operator of the OpenCV module
 imf1 = cv.filter2D(imb, -1, flt1, borderType=cv.BORDER_CONSTANT)
 imf2 = cv.filter2D(imb, -1, flt2, borderType=cv.BORDER_CONSTANT)
-
 
 #gaussien filter
 X, Y = np.meshgrid(range(-1,2), range(-1,2))
